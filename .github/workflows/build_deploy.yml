@@ -1,1 +1,30 @@
 name: 'Deploy function app to azure function'
+
+on:
+    push:
+        branches:
+            - githubactiontest
+    workflow_dispatch:
+
+jobs:
+
+    build_deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Checkout Github Actions'
+              uses: actions/checkout@v3
+
+            - name: 'Azure Login'
+              uses: azure/login@v2
+              with:
+                creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+            - name: 'Azure CLI'
+              uses: azure/cli@v2
+              with:
+                azcliversion: latest
+                inlineScript: |
+                    az account show
+
+
+
