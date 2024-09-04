@@ -43,6 +43,7 @@ jobs:
 
             - name: 'Install dependenices'
               run: |
+                source .venv/bin/activate
                 pip install -r requirements.txt
 
             - name: 'Check file path'
@@ -52,6 +53,7 @@ jobs:
             - name: 'Zip function app'
               run: |
                 zip -r nsgrtfunctionapp.zip ${{env.AZ_PATH}}
+                unzip -l nsgrtfunctionapp.zip  
 
             - name: 'Deploy to function app'
               run: |
