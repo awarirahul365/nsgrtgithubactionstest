@@ -49,7 +49,7 @@ jobs:
             - name: 'Include Deployment File'
               run: |
                 touch .deployment
-                echo "SCM_DO_BUILD_DURING_DEPLOYMENT=true" >> .deployment
+                echo "'[config] SCM_DO_BUILD_DURING_DEPLOYMENT = true'" >> .deployment
                 echo "enable-oryx-build=true" >> .deployment
 
             - name: 'Check file path'
