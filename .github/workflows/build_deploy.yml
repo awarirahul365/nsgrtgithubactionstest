@@ -14,7 +14,7 @@ jobs:
             PYTHON_VERSION: '3.11'
             RESOURCE_GROUP_NAME: 'azpoe-hecmonitor-test'
             APP_NAME: 'azpoe-hecmonitor-nsgrtbackup'
-            PATH: '.'
+            AZ_PATH: '.'
         steps:
             - name: 'Checkout Github Actions'
               uses: actions/checkout@v3
@@ -52,7 +52,7 @@ jobs:
             
             - name: 'Deploy to function app'
               run: |
-                az functionapp deployment source config-zip -g ${{env.RESOURCE_GROUP_NAME}} -n ${{env.APP_NAME}} --src ${{env.PATH}}
+                az functionapp deployment source config-zip -g ${{env.RESOURCE_GROUP_NAME}} -n ${{env.APP_NAME}} --src ${{env.AZ_PATH}}
 
 
 
