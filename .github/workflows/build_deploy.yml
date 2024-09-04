@@ -60,7 +60,7 @@ jobs:
 
             - name: 'Deploy to function app'
               run: |
-                az functionapp deployment source config-zip -g ${{env.RESOURCE_GROUP_NAME}} -n ${{env.APP_NAME}} --src nsgrtfunctionapp.zip
+                az functionapp deployment source config-zip -g ${{env.RESOURCE_GROUP_NAME}} -n ${{env.APP_NAME}} --src ./nsgrtfunctionapp.zip
 
 
 
