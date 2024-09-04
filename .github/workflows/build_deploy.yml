@@ -48,7 +48,6 @@ jobs:
             - name: 'Check file path'
               run: |
                 pwd
-                ls -a
             
             - name: 'Zip function app'
               run: |
