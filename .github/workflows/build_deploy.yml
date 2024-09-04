@@ -46,10 +46,17 @@ jobs:
                 source .venv/bin/activate
                 pip install -r requirements.txt
 
+            - name: 'Include Deployment File'
+              run: |
+                touch .deployment
+                echo "SCM_DO_BUILD_DURING_DEPLOYMENT=true" >> .deployment
+
             - name: 'Check file path'
               run: |
                 pwd
-            
+                cat .deployment
+                ls -a
+
             - name: 'Zip function app'
               run: |
                 zip -r nsgrtfunctionapp.zip ${{env.AZ_PATH}}  
