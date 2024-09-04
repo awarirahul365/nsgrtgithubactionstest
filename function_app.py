@@ -208,7 +208,7 @@ async def http_trigger_customer(req: func.HttpRequest) -> func.HttpResponse:
              status_code=200
         )
 
-@app.timer_trigger(schedule="0 0 * * *", arg_name="myTimer", run_on_startup=True,
+@app.timer_trigger(schedule="*/10 * * * *", arg_name="myTimer", run_on_startup=True,
               use_monitor=False) 
 async def timer_trigger_nsg(myTimer: func.TimerRequest) -> None:
     
