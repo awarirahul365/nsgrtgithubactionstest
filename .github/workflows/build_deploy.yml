@@ -50,9 +50,13 @@ jobs:
                 pwd
                 ls -a
             
+            - name: 'Zip function app'
+              run: |
+                zip -r nsgrtfunctionapp.zip ${{env.AZ_PATH}}
+
             - name: 'Deploy to function app'
               run: |
-                az functionapp deployment source config-zip -g ${{env.RESOURCE_GROUP_NAME}} -n ${{env.APP_NAME}} --src ${{env.AZ_PATH}}
+                az functionapp deployment source config-zip -g ${{env.RESOURCE_GROUP_NAME}} -n ${{env.APP_NAME}} --src nsgrtfunctionapp.zip
 
 
 
