@@ -52,8 +52,11 @@ jobs:
             
             - name: 'Zip function app'
               run: |
-                zip -r nsgrtfunctionapp.zip ${{env.AZ_PATH}}
-                unzip -l nsgrtfunctionapp.zip  
+                zip -r nsgrtfunctionapp.zip ${{env.AZ_PATH}}  
+
+            - name: 'Check if zip file is present'
+              run: |
+                ls -a
 
             - name: 'Deploy to function app'
               run: |
