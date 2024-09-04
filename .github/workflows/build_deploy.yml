@@ -50,6 +50,7 @@ jobs:
               run: |
                 touch .deployment
                 echo "SCM_DO_BUILD_DURING_DEPLOYMENT=true" >> .deployment
+                echo "enable-oryx-build=true" >> .deployment
 
             - name: 'Check file path'
               run: |
